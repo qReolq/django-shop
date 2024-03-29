@@ -4,12 +4,10 @@ from goods.models import Categories
 
 
 def index(reqeust):
-    categories = Categories.objects.all()
 
     context: dict = {
         'title': 'Home - Главная',
         'content': "Магазин мебели HOME",
-        'categories': categories,
     }
 
     return render(reqeust, 'main/index.html', context)
