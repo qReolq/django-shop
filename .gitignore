@@ -1,8 +1,6 @@
 #python stuff
-venv/
 .pylintrc
 __pycache__/
-cache/
 
 #ide stuff
 .vscode
@@ -10,4 +8,3 @@ cache/
 
 #django stuff
 db.sqlite3
-media/
