@@ -11,15 +11,12 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 import dj_database_url
-import os
 from pathlib import Path
 
 from django.http import HttpResponseNotFound
 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -28,10 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-ld)8k$gfoow^#9-6mm@palg6l9d)&l!5ng#m2@=msxhq353g#2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
-
 
 # Application definition
 
@@ -85,7 +81,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'app.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
@@ -100,7 +95,8 @@ DATABASES = {
     }
 }
 
-DATABASES["default"] = dj_database_url.parse("postgresql://django_shop_user:zfAqv749B9VJIyXI4BcxvR0NX6nxa5zu@dpg-csbvbhogph6c73eilreg-a.oregon-postgres.render.com/django_shop")
+DATABASES["default"] = dj_database_url.parse(
+    "postgresql://django_shop_user:zfAqv749B9VJIyXI4BcxvR0NX6nxa5zu@dpg-csbvbhogph6c73eilreg-a.oregon-postgres.render.com/django_shop")
 
 CACHES = {
     "default": {
@@ -127,7 +123,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
@@ -139,21 +134,17 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-]
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_DIRS = [BASE_DIR / 'static']
 
 MEDIA_URL = 'media/'
 
 MEDIA_ROOT = BASE_DIR / 'media'
-
 
 INTERNAL_IPS = [
     # ...
